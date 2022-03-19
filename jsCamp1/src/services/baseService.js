@@ -1,6 +1,6 @@
-import ResultMessages from "../core/constants/resultMessages.js";
 import ErrorResult from "../core/utilities/results/errorResult.js";
 import SuccessResult from "../core/utilities/results/successResult.js";
+import ResultMessages from '../core/constants/resultMessages.js';
 export default class BaseService {
   constructor(userRepository, userValidation, logger) {
     this.userValidation = userValidation;
@@ -27,10 +27,14 @@ export default class BaseService {
     return new SuccessResult(ResultMessages.userUpdate,user);
   }
   getAll() {
-    return new SuccessResult(ResultMessages.userGetAll,this.userRepository.getAll());
+    return this.userRepository.getAll().length !== 0 
+    ? new SuccessResult(ResultMessages.userGetAll,this.userRepository.getAll())
+    : new ErrorResult(ResultMessages.userGetAllError,[])
   }
 
   getById(id) {
-    return new SuccessResult(ResultMessages.userGetById(id),this.userRepository.getById(id));
+    return this.userRepository.getById(id) 
+    ? new SuccessResult(ResultMessages.userGetById(id),this.userRepository.getById(id)) 
+    : new ErrorResult(ResultMessages.userGetByIdError)
   }
 }

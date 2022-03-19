@@ -3,7 +3,6 @@ export default class CustomerRepository {
   constructor() {
     this.customers = users.filter((user) => user.type === "customer");
   }
-
   add(user) {
     this.customers.push(user);
   }

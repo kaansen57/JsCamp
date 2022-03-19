@@ -1,3 +1,4 @@
+import ResultMessages from "../../core/constants/resultMessages.js";
 import ErrorResult from "../../core/utilities/results/errorResult.js";
 
 export default class BaseValidator {
@@ -5,9 +6,8 @@ export default class BaseValidator {
     this.errors = [];
     this.requiredFields = ["id", "firstName", "lastName", "age", "city"];
   }
-
   emptyFieldsCheck(user) {
-    this.getAge(user);
+    this.ageIsNumberCheck(user);
     this.requiredFieldsCheck(user);
     return this.errors.length === 0;
   }
@@ -15,18 +15,18 @@ export default class BaseValidator {
     this.requiredFields.forEach((field) => {
       if (!user[field]) {
         this.errors.push(
-          new ErrorResult(`Validation problem ! '${field}' is required`, user)
+          new ErrorResult(ResultMessages.fieldRequiredError(field), user)
         );
       }
     });
     return this.errors.length === 0;
   }
 
-  getAge(user) {
+  ageIsNumberCheck(user) {
     if (Number.isInteger(user.age)) {
       return true;
     }
-    this.errors.push(new ErrorResult("User age not a number value", user));
+    this.errors.push(new ErrorResult(ResultMessages.ageNaNError, user));
     return false;
   }
 
@@ -63,5 +63,4 @@ export default class BaseValidator {
   //   this.errors.push(new DataError("user city is empty", user));
   //   return false;
   // }
-
 }
