@@ -11,6 +11,10 @@ export default class EmployeeRepository {
     let deleteUser = this.employees.findIndex((usr) => usr.id === user.id);
     this.employees.splice(deleteUser, 1);
   }
+  update(user) {
+    const updateUser = this.employees.findIndex((usr) => usr.id === user.id);
+    this.employees[updateUser] = user;
+  }
   getAll() {
     return this.employees;
   }

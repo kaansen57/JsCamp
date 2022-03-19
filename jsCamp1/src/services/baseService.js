@@ -13,7 +13,8 @@ export default class BaseService {
       this.userRepository.add(user);
       this.logger.log(user);
       return new SuccessResult(ResultMessages.userAdded,user);
-    } else {
+    } 
+    else {
       return new ErrorResult(ResultMessages.userAddError,this.userValidation.getErrorList());
     }
   }

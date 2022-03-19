@@ -1,20 +1,24 @@
 import { users } from "../data/data.js";
 export default class CustomerRepository {
   constructor() {
-    this.customer = users.filter((user) => user.type === "customer");
+    this.customers = users.filter((user) => user.type === "customer");
   }
 
   add(user) {
-    this.customer.push(user);
+    this.customers.push(user);
   }
   delete(user) {
-    let deleteUser = this.customer.findIndex((usr) => usr.id === user.id);
-    this.customer.splice(deleteUser, 1);
+    let deleteUser = this.customers.findIndex((usr) => usr.id === user.id);
+    this.customers.splice(deleteUser, 1);
+  }
+  update(user) {
+    const updateUser = this.customers.findIndex((usr) => usr.id === user.id);
+    this.customers[updateUser] = user;
   }
   getAll() {
-    return this.customer;
+    return this.customers;
   }
   getById(id) {
-    return this.customer.find((user) => user.id === id);
+    return this.customers.find((user) => user.id === id);
   }
 }

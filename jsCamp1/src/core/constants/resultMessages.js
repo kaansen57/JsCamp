@@ -9,6 +9,8 @@ export default class ResultMessages {
   //Hata Mesajları
 
   static userAddError = "Kullanıcı Eklenemedi!";
+  static userUpdateError = "Kullanıcı Güncellenemedi!";
+  static userDeleteError = "Kullanıcı Silinemedi!";
 
   
 }
