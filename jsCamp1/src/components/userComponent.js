@@ -4,6 +4,7 @@ import BaseValidator from "../crossCuttingConcerns/validation/baseValidator.js";
 import User from "../models/user.js";
 import BaseRepository from "../repository/baseRepository.js";
 import BaseService from "../services/baseService.js";
+console.log("******* User *********");
 
 let user = new User(9, "Ahmet", "Özcan", "20");
 let user2 = new User(10, "Ender", "Özcan", 30, "Sinop");

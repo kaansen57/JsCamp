@@ -3,6 +3,7 @@ export default class ResultMessages {
   static userDelete = "Kullanıcı başarıyla silindi!";
   static userUpdate = "Kullanıcı başarıyla güncellendi!";
   static userGetAll = "Kullanıcılar başarıyla listelendi!";
+  static userGetAllSorted = "Kullanıcılar sıralı şekilde listelendi!";
   static userGetById = (id) => {
     return `${id} numaralı kullanıcı getirildi`;
   };

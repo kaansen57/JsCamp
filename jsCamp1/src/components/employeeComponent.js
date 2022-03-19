@@ -4,6 +4,7 @@ import Employee from "../models/employee.js";
 import EmployeeRepository from "../repository/employeeRepository.js";
 import BaseLogger from "../crossCuttingConcerns/logger/baseLogger.js";
 import EmployeeService from "../services/employeeService.js";
+console.log("******* Employee *********");
 
 let employee1 = new Employee(1,"eren","bozkurt",23,"sivas",5500);
 let employeeService = new EmployeeService(new EmployeeRepository(), new EmployeeValidator(), new BaseLogger());
