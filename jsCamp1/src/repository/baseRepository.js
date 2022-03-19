@@ -8,8 +8,12 @@ export default class BaseRepository {
     this.users.push(user);
   }
   delete(user) {
-    let deleteUser = this.users.findIndex((usr) => usr.id === user.id);
-    this.users.splice(deleteUser,1);
+    const deleteUser = this.users.findIndex((usr) => usr.id === user.id);
+    this.users.splice(deleteUser, 1);
+  }
+  update(user) {
+    const updateUser = this.users.findIndex((usr) => usr.id === user.id);
+    this.users[updateUser] = user;
   }
   getAll() {
     return this.users;
