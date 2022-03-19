@@ -3,7 +3,6 @@ export default class EmployeeRepository {
   constructor() {
     this.employees = users.filter((user) => user.type === "employee");
   }
-
   add(user) {
     this.employees.push(user);
   }
