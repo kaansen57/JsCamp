@@ -37,4 +37,8 @@ export default class BaseService {
     ? new SuccessResult(ResultMessages.userGetById(id),this.userRepository.getById(id)) 
     : new ErrorResult(ResultMessages.userGetByIdError)
   }
+
+  getAllSorted(sortingType,sortingBy){
+    return this.userRepository.getAllSorted(sortingType,sortingBy);
+  }
 }

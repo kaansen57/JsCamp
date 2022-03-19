@@ -1,3 +1,4 @@
+import Sort from "../core/utilities/helpers/sort.js";
 import { users } from "../data/data.js";
 export default class CustomerRepository {
   constructor() {
@@ -19,5 +20,8 @@ export default class CustomerRepository {
   }
   getById(id) {
     return this.customers.find((user) => user.id === id);
+  }
+  getAllSorted(sortingType, sortingBy) {
+    return Sort.sortList(this.customers, sortingType, sortingBy);
   }
 }

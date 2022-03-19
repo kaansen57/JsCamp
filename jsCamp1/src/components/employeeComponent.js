@@ -13,3 +13,5 @@ console.log(employeeService.getAll());
 
 employee1 = new Employee(1,"eren","bozkurt",24,"Sivas",6000);
 console.log(employeeService.update(employee1));
+
+console.log(employeeService.getAllSorted("asc","salary"));
